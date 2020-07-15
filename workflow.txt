@@ -1,0 +1,47 @@
+Registration form
+	-Register / sign up
+	-sign in
+-Bootstrap
+-php db queries 
+
+Sign up page :
+	TextBox
+		FirstName
+		SecondName
+		Email
+		Phone
+	RadioButton
+		Gender
+	DropDown --Dependent Dropdown HTML
+		Country
+		State(3)
+		City(3)
+	CheckBox
+		I agree to terms and conditions
+		
+Login :
+	User
+		username
+		pass
+			success
+				Hello username logged in at time!
+	Admin
+		username
+		pass	
+			success
+				Hello username logged in at time!
+				View all Users
+					-user data of all Users
+					++	
+					-sort 
+					-filter
+					-search on Email/username
+					---on submit [new page]
+						--display [ result + update + delete] 
+
+[save data to db]
+[all fields are *, submit inactive till all * gets proper values]
+
+
+ctrl + tab
+fn + tab
