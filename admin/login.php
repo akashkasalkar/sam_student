@@ -37,12 +37,37 @@ body {
 				</div> <!-- input-group.// -->
 				</div> <!-- form-group// -->
 				<div class="form-group">
-					<button type="submit" class="btn btn-success btn-block"> Login  </button>
+					<button type="submit" class="btn btn-success btn-block" name="login"> Login  </button>
 				</div> <!-- form-group// -->
 				<p class="text-center "><a href="#" class=" text-danger h6">Forgot password?</a></p>
 						</form>
 					</div>
 				</div>
+				<?php
+				session_start();
+					if (isset($_POST['login'])) {
+						$email=$_POST['email'];
+						$password=$_POST['password'];
+
+
+
+
+						 $qry="select * from admin where email='$email' AND password='$password'";
+            			$exc=mysqli_query($conn,$qry);
+
+            
+            if(mysqli_affected_rows($conn)!=0){
+              $_SESSION['admin_email']=$email;
+              
+              echo "<script>alert('login successfull..');
+              </script>";
+              header("location:dashboard.php");
+            }
+            else{
+              echo "<script>alert('username/password incorrcet');</script>";
+            }
+					}
+				 ?>
 </body>
 </html>
 

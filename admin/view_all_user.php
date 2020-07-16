@@ -32,7 +32,7 @@
 				<tbody id="myTable">
 					<?php
 					include("../include/dbconn.php");
-					$qry="select * from users ";
+					$qry="select * from users order by fname ASC ";
 					$exc=mysqli_query($conn,$qry);
 					
 					while ($row=mysqli_fetch_array($exc))

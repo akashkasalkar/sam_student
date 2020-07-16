@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2020 at 03:03 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.31
+-- Generation Time: Jul 16, 2020 at 09:59 AM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -20,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `test_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(5) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
+(1, 'admin@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -195,21 +215,29 @@ CREATE TABLE `users` (
   `gender` varchar(10) NOT NULL,
   `country` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
+  `city` varchar(50) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `ph`, `password`, `gender`, `country`, `state`, `created_at`) VALUES
-(1, 'admin', '123', 'admin@gmail.com', 7411639099, 'admin', 'male', 'India', 'Karnataka', '2020-07-15 15:53:53'),
-(2, 'sam', 'pk', 'sam@gmail.com', 7411639099, '123', 'male', 'India', 'Karnataka', '2020-07-15 15:56:01'),
-(3, 'John', 'Snow', 'john@gmail.com', 7411639099, '123', 'Male', 'India', 'Karnataka', '2020-07-15 15:56:01');
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `ph`, `password`, `gender`, `country`, `state`, `city`, `created_at`) VALUES
+(2, 'sam', 'pk', 'sam@gmail.com', 7411639099, '123', 'male', 'India', 'Karnataka', '', '2020-07-15 15:56:01'),
+(3, 'John', 'Snow', 'john@gmail.com', 7411639099, '123', 'Male', 'India', 'Karnataka', '', '2020-07-15 15:56:01'),
+(8, 'akash', 'aaa', 'akkyabakkya@gmail.com', 9036109135, '1', 'M', 'India', 'Haryana', 'Gurugram', '2020-07-15 09:12:45');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `city`
@@ -243,6 +271,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `city`
 --
 ALTER TABLE `city`
@@ -258,7 +292,7 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

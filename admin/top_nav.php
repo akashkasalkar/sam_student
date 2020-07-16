@@ -1,10 +1,10 @@
 
 <?php include "../include/dbconn.php"; ?>
 <?php
-    // session_start();
-    // if (!isset($_SESSION['admin_email'])) {
-    //     header("location:../index.php");
-    // }
+    session_start();
+    if (!isset($_SESSION['admin_email'])) {
+        header("location:login.php");
+    }
  ?>
 <!doctype html>
 <html lang="en">
