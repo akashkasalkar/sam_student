@@ -101,7 +101,7 @@
 				$exc=mysqli_query($conn,$sql);
 				if($exc==true){
 						echo "<script>alert('data updated successfully');
-							window.location='view_student.php';
+							window.location='view_all_user.php';
 						</script>";
 					}
 					else {
